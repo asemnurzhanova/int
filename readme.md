@@ -10,11 +10,6 @@
 ###### pip install -r requirements.txt
 ###### ansible-playbook golang.yaml
 ###### minikube start
-
-
-kubectl get pods
-kubectl describe pod
-
 ###### helm create golang-app
 #Отредактировать файл values.yaml
 
