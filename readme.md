@@ -1,8 +1,9 @@
-Написать докерфайл
+
+#Написать докерфайл
 docker build -t asemn00/golang_app_intern:latest
 docker run -d -p 3000:3000 asemn00/golang_app_intern:latest
 docker push asemn00/golang_app_intern:latest
-Написать файл yaml
+#Написать файл yaml
 python3 -m pip install virtualenv
 python3 -m virtualenv ansible
 source ansible/bin/activate
@@ -15,7 +16,7 @@ kubectl get pods
 kubectl describe pod
 
 helm create golang-app
-Отредактировать файл values.yaml
+#Отредактировать файл values.yaml
 
 helm install --values values.yaml golang-app .
 kubectl get pods (проверить запустился ли контейнер)
