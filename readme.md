@@ -3,7 +3,7 @@
 ###### docker build -t asemn00/golang_app_intern:latest
 ###### docker run -d -p 3000:3000 asemn00/golang_app_intern:latest
 ###### docker push asemn00/golang_app_intern:latest
-#Написать файл yaml
+# Написать файл yaml
 ###### python3 -m pip install virtualenv
 ###### python3 -m virtualenv ansible
 ###### source ansible/bin/activate
