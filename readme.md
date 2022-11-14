@@ -1,6 +1,6 @@
 
 # Написать докерфайл
-###### docker build -t asemn00/golang_app_intern:latest
+###### docker build -t asemn00/golang_app_intern:latest .
 ###### docker run -d -p 3000:3000 asemn00/golang_app_intern:latest
 ###### docker push asemn00/golang_app_intern:latest
 # Написать файл yaml
