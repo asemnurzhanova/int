@@ -3,7 +3,7 @@
 ```sh
 cd /path/to/project
 ```
-2. Отредактировать Dockerfile
+2. Отредактировать `Dockerfile`
 3. Собрать образ при помощи Dockerfile
 ```sh
 docker build -t asemn00/golang_app_intern:latest .
@@ -18,7 +18,7 @@ docker run -d -p 3000:3000 asemn00/golang_app_intern:latest
 ```sh
 docker push asemn00/golang_app_intern:latest
 ```
-2. Написать Playbook (golang.yaml)
+2. Написать Playbook `golang.yaml`
 3. Установить библиотеку виртуального окружения
 ```sh
 python3 -m pip install virtualenv
