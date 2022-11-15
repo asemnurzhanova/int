@@ -13,27 +13,43 @@ docker build -t asemn00/golang_app_intern:latest .
 docker run -d -p 3000:3000 asemn00/golang_app_intern:latest
 ```
 5. Открыть ссылку <http://localhost:3000> в браузере для проверки приложения
-# Задание 2
-1. Загрузить созданный образ в репозиторий
+# Загрузка образа в репозиторий
+1. Войти в реестр Docker Hub
+```sh
+export DOCKER_REGISTRY=https://index.docker.io/v1/
+export DOCKER_USER=asemn00 # пользователь registry
+read -s DOCKER_PASSWORD # пароль от registry
+echo $DOCKER_PASSWORD | docker login -u ${DOCKER_USER} --password-stdin ${DOCKER_REGISTRY}
+```
+2. Загрузить созданный образ в репозиторий
 ```sh
 docker push asemn00/golang_app_intern:latest
 ```
-2. Написать Playbook `golang.yaml`
-3. Установить библиотеку виртуального окружения
+3. Выйти из рееста
+```sh
+docker logout
+```
+Output:
+```
+Removing login credentials for https://index.docker.io/v1/
+```
+# Задание 2
+1. Написать Playbook `golang.yaml`
+2. Установить библиотеку виртуального окружения
 ```sh
 python3 -m pip install virtualenv
 ```
-4. Создать и активировать виртуальное окружение
+3. Создать и активировать виртуальное окружение
 ```sh
 python3 -m virtualenv ansible
 source ansible/bin/activate
 ```
-5. Записать в `requirements.txt` библиотеки, необходимые для запуска Playbook
-6. Установить их
+4. Записать в `requirements.txt` библиотеки, необходимые для запуска Playbook
+5. Установить их
 ```sh
 pip install -r requirements.txt
 ```
-7. Запустить Playbook
+6. Запустить Playbook
 ```sh
 ansible-playbook golang.yaml
 ```
