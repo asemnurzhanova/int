@@ -34,22 +34,26 @@ Output:
 Removing login credentials for https://index.docker.io/v1/
 ```
 # Задание 2
-1. Написать Playbook `golang.yaml`
-2. Установить библиотеку виртуального окружения
+1. Перейти в каталог проекта ansible
+```sh
+cd /path/to/project/ansible
+```
+2. Написать Playbook `golang.yaml`
+3. Установить библиотеку виртуального окружения
 ```sh
 python3 -m pip install virtualenv
 ```
-3. Создать и активировать виртуальное окружение
+4. Создать и активировать виртуальное окружение
 ```sh
 python3 -m virtualenv ansible
 source ansible/bin/activate
 ```
-4. Записать в `requirements.txt` библиотеки, необходимые для запуска Playbook
-5. Установить их
+5. Записать в `requirements.txt` библиотеки, необходимые для запуска Playbook
+6. Установить их
 ```sh
 pip install -r requirements.txt
 ```
-6. Запустить Playbook
+7. Запустить Playbook
 ```sh
 ansible-playbook golang.yaml
 ```
