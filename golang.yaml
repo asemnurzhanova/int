@@ -3,15 +3,15 @@
   tasks:
     - name: create build directory
       file:
-        path: /home/docker/golang_app/
+        path: /home/gpn/golang_app/
         state: directory
         owner: root
         group: root
         mode: '0755'
-    - name: copy Dockerfile
+    - name: copy context with Dockerfile
       copy:
-        src: ./Dockerfile
-        dest: /home/docker/golang_app/Dockerfile
+        src: /home/docker/golang_app/
+        dest: /home/gpn/golang_app/
         owner: root
         group: root
         mode: '0644'
@@ -20,7 +20,7 @@
         name: asemn00/golang_app_intern:latest
         source: build
         build:
-          path: /home/docker/golang_app
+          path: /home/gpn/golang_app
         state: present
     - name: run container
       docker_container:
