@@ -28,7 +28,7 @@ python3 -m pip install virtualenv
 python3 -m virtualenv ansible
 source ansible/bin/activate
 ```
-5. Записать в requirements.txt библиотеки, необходимые для запуска Playbook
+5. Записать в `requirements.txt` библиотеки, необходимые для запуска Playbook
 6. Установить их
 ```sh
 pip install -r requirements.txt
