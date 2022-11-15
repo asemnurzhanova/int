@@ -1,6 +1,7 @@
 pipeline {
   environment {
-    registry = "asemn00/gpn-test"
+    registry = "asemn00"
+    image_name = "gpn-test"
     registryCredential = 'docker-hub'
     dockerImage = ''
   }
@@ -14,14 +15,14 @@ pipeline {
     stage('Building image') {
       steps{
         script {
-          dockerImage = docker.build "$registry:$BUILD_NUMBER"
+          dockerImage = docker.build "$registry/$image_name:$BUILD_NUMBER"
         }
       }
     }
     stage('Run Image') {
       steps{
          script {
-            dockerImage.run("-p 3000:3000 --name $registry:$BUILD_NUMBER $registry:$BUILD_NUMBER")
+            dockerImage.run("-p 3000:3000 --name $image_name $registry/$image_name:$BUILD_NUMBER")
          }
       }
     }
