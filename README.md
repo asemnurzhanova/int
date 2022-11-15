@@ -89,7 +89,7 @@ echo https://$NODE_IP:$NODE_PORT
 ```
 9. Проверить приложение
 ```sh
-url http://$NODE_IP:$NODE_PORT
+curl http://$NODE_IP:$NODE_PORT
 ```
 Output:
 ```
