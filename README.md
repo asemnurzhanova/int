@@ -1,7 +1,7 @@
 # Задание 1
 1. Перейти в каталог проекта
 ```sh
-cd /path/to/project
+cd /path/to/project/docker/image
 ```
 2. Отредактировать `Dockerfile`
 3. Собрать образ при помощи Dockerfile
@@ -63,20 +63,24 @@ ansible-playbook golang.yaml
 ```sh
 minikube start
 ```
-3. Создать чарт в каталоге golang-app
+3. Перейти в каталог проекта helm
+```sh
+cd /path/to/project/helm
+```
+4. Создать чарт в каталоге golang-app
 ```sh
 helm create golang-app
 ```
-4. Перейти в каталог чарта
+5. Перейти в каталог чарта
 ```sh
 cd golang-app
 ```
-5. Отредактировать файл values.yaml
-6. Развернуть чарт
+6. Отредактировать файл values.yaml
+7. Развернуть чарт
 ```sh
 helm install --values values.yaml golang-app .
 ```
-7. Проверить запустился ли контейнер
+8. Проверить запустился ли контейнер
 ```sh
 kubectl get pods
 ```
@@ -85,13 +89,13 @@ Output:
 NAME                          READY   STATUS    RESTARTS   AGE  
 golang-app-77658fc567-jwkl9   1/1     Running   0          97s
 ```
-8. Получить URL приложения
+9. Получить URL приложения
 ```sh
 export NODE_PORT=$(kubectl get --namespace default -o jsonpath="{.spec.ports[0].nodePort}" services golang-app)
 export NODE_IP=$(kubectl get nodes --namespace default -o jsonpath="{.items[0].status.addresses[0].address}")
 echo https://$NODE_IP:$NODE_PORT
 ```
-9. Проверить приложение
+10. Проверить приложение
 ```sh
 curl http://$NODE_IP:$NODE_PORT
 ```
