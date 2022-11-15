@@ -1,0 +1,38 @@
+pipeline {
+  environment {
+    registry = "asemn00/gpn-test"
+    registryCredential = 'docker-hub'
+    dockerImage = ''
+  }
+  agent {label 'localhost'}
+  stages {
+    stage('Cloning Git') {
+      steps {
+        git 'https://github.com/asemnurzhanova/test-task.git'
+      }
+    }
+    stage('Building image') {
+      steps{
+        script {
+          dockerImage = docker.build "$registry:$BUILD_NUMBER"
+        }
+      }
+    }
+    stage('Run Image') {
+      steps{
+         script {
+            dockerImage.run("$registry:$BUILD_NUMBER -p 3000:3000")
+         }
+      }
+    }
+    stage('Deploy Image') {
+      steps{
+         script {
+            docker.withRegistry( '', registryCredential ) {
+            dockerImage.push()
+          }
+        }
+      }
+    }
+  }
+}
