@@ -62,9 +62,8 @@ kubectl get pods
 ```
 
 `
-NAME                         | READY  | STATUS   | RESTARTS  | AGE 
----------------------------- | ------ | -------- | --------- |--- 
-golang-app-77658fc567-jwkl9  | 1/1    | Running  | 0         | 97s
+NAME                          READY   STATUS    RESTARTS   AGE  
+golang-app-77658fc567-jwkl9   1/1     Running   0          97s
 `
 ###### export NODE_PORT=$(kubectl get --namespace default -o jsonpath="{.spec.ports[0].nodePort}" services golang-app)
 ###### export NODE_IP=$(kubectl get nodes --namespace default -o jsonpath="{.items[0].status.addresses[0].address}")
