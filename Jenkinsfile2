@@ -21,7 +21,7 @@ pipeline {
     stage('Run Image') {
       steps{
          script {
-            dockerImage.run("-d -p 3000:3000 --name $registry:$BUILD_NUMBER $registry:$BUILD_NUMBER")
+            dockerImage.run("-p 3000:3000 --name $registry:$BUILD_NUMBER $registry:$BUILD_NUMBER")
          }
       }
     }
