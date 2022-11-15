@@ -60,12 +60,22 @@ helm install --values values.yaml golang-app .
 ```sh
 kubectl get pods
 ```
-
+Output:
 ```sh
 NAME                          READY   STATUS    RESTARTS   AGE  
 golang-app-77658fc567-jwkl9   1/1     Running   0          97s
 ```
-###### export NODE_PORT=$(kubectl get --namespace default -o jsonpath="{.spec.ports[0].nodePort}" services golang-app)
-###### export NODE_IP=$(kubectl get nodes --namespace default -o jsonpath="{.items[0].status.addresses[0].address}")
-###### curl http://$NODE_IP:$NODE_PORT
-###### Получили Hello !
+8. Получить URL приложения
+```sh
+export NODE_PORT=$(kubectl get --namespace default -o jsonpath="{.spec.ports[0].nodePort}" services golang-app)
+export NODE_IP=$(kubectl get nodes --namespace default -o jsonpath="{.items[0].status.addresses[0].address}")
+echo https://$NODE_IP:$NODE_PORT
+```
+9. Проверить приложение
+```sh
+url http://$NODE_IP:$NODE_PORT
+```
+Output:
+```sh
+Hello !
+```
