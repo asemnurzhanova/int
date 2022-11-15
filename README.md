@@ -1,23 +1,24 @@
 # Задание 1
-1. Написать Dockerfile
-2. Собрать образ при помощи Dockerfile
-```sh
-docker build -t asemn00/golang_app_intern:latest /path/to/project
-```
-3. Создать и запустить контейнер из образа
-```sh
-docker run -d -p 3000:3000 asemn00/golang_app_intern:latest
-```
-4. Загрузить созданный образ в репозиторий
-```sh
-docker push asemn00/golang_app_intern:latest
-```
-# Задание 2
-1. Написать файл Playbook
-2. Перейти в каталог проекта
+1. Перейти в каталог проекта
 ```sh
 cd /path/to/project
 ```
+2. Отредактировать Dockerfile
+3. Собрать образ при помощи Dockerfile
+```sh
+docker build -t asemn00/golang_app_intern:latest .
+```
+4. Создать и запустить контейнер из образа
+```sh
+docker run -d -p 3000:3000 asemn00/golang_app_intern:latest
+```
+5. Открыть ссылку http://localhost:3000 в браузере, для проверки приложения
+# Задание 2
+1. Загрузить созданный образ в репозиторий
+```sh
+docker push asemn00/golang_app_intern:latest
+```
+2. Написать Playbook (golang.yaml)
 3. Установить библиотеку виртуального окружения
 ```sh
 python3 -m pip install virtualenv
@@ -27,11 +28,12 @@ python3 -m pip install virtualenv
 python3 -m virtualenv ansible
 source ansible/bin/activate
 ```
-5. Установить библиотеки, необходимые для запуска Playbook
+5. Записать в requirements.txt библиотеки, необходимые для запуска Playbook
+6. Установить их
 ```sh
 pip install -r requirements.txt
 ```
-6. Запустить Playbook
+7. Запустить Playbook
 ```sh
 ansible-playbook golang.yaml
 ```
