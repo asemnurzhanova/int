@@ -76,6 +76,6 @@ echo https://$NODE_IP:$NODE_PORT
 url http://$NODE_IP:$NODE_PORT
 ```
 Output:
-```sh
+```
 Hello !
 ```
