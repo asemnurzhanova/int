@@ -61,7 +61,7 @@ helm install --values values.yaml golang-app .
 kubectl get pods
 ```
 Output:
-```sh
+```
 NAME                          READY   STATUS    RESTARTS   AGE  
 golang-app-77658fc567-jwkl9   1/1     Running   0          97s
 ```
