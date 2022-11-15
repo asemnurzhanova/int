@@ -1,6 +1,7 @@
 pipeline {
   environment {
-    registry = "asemn00/gpn-test"
+    registry = "asemn00"
+    image_name = "gpn-test"
     registryCredential = 'docker-hub'
     dockerImage = ''
   }
@@ -14,7 +15,7 @@ pipeline {
     stage('Building image') {
       steps{
         script {
-          dockerImage = docker.build "$registry:$BUILD_NUMBER"
+          dockerImage = docker.build "$registry/$image_name:$BUILD_NUMBER"
         }
       }
     }
@@ -29,7 +30,7 @@ pipeline {
     }
     stage('Remove Unused docker image') {
       steps{
-        sh "docker rmi $registry:$BUILD_NUMBER"
+        sh "docker rmi $registry/$image_name:$BUILD_NUMBER"
       }
     }
   }
