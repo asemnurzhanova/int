@@ -11,7 +11,7 @@
     - name: copy context with Dockerfile
       copy:
         src: /home/docker/golang_app/
-        dest: /home/gpn/golang_app/
+        dest: /home/gpn/golang_app
         owner: root
         group: root
         mode: '0644'
